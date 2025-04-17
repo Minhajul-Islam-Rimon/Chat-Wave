@@ -2,6 +2,7 @@ import User from "../models/user.model.js";
 import Message from "../models/message.model.js";
 
 import cloudinary from "../lib/cloudinary.js";
+import { getReceiverSocketId, io } from "../lib/socket.js";
 
 
 //we will fetch evry single user by function but not ourself
@@ -63,12 +64,12 @@ export const getMessages = async (req, res) => {
 
       await newMessage.save();  //saving  new msg to database 
 
-      //todo:real time functionility by socket.io
+      //real time functionility by socket.io
 
-    //   const receiverSocketId = getReceiverSocketId(receiverId);
-    //   if (receiverSocketId) {
-    //     io.to(receiverSocketId).emit("newMessage", newMessage);
-    //   }
+      const receiverSocketId = getReceiverSocketId(receiverId);
+      if (receiverSocketId) {
+        io.to(receiverSocketId).emit("newMessage", newMessage);
+      }
   
       res.status(201).json(newMessage); //resourse has been created and send this new msg back to client
     } catch (error) {

@@ -23,13 +23,13 @@ const ChatContainer = () => {
     getMessages(selectedUser._id);
 
     // Temporarily commented out subscribeToMessages
-    // subscribeToMessages();
+     subscribeToMessages();
 
-    return () => {
+    return () => 
       // Temporarily commented out unsubscribeFromMessages
-      // unsubscribeFromMessages();(28-32 gpt code might need to change later)
-    };
-  }, [selectedUser._id, getMessages]);
+       unsubscribeFromMessages();  //(28-32 gpt code might need to change later)
+    
+  }, [selectedUser._id, getMessages,subscribeToMessages, unsubscribeFromMessages]);
 
 //   useEffect(() => {
 //     getMessages(selectedUser._id);
@@ -39,11 +39,11 @@ const ChatContainer = () => {
 //     return () => unsubscribeFromMessages();
 //   }, [selectedUser._id, getMessages, subscribeToMessages, unsubscribeFromMessages]);
 
-  useEffect(() => {
-    if (messageEndRef.current && messages) {
-      messageEndRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [messages]);
+  // useEffect(() => {
+  //   if (messageEndRef.current && messages) {
+  //     messageEndRef.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, [messages]);
 
   if (isMessagesLoading) {
     return (
