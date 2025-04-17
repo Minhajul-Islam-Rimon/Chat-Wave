@@ -17,7 +17,7 @@ const ChatContainer = () => {
     unsubscribeFromMessages,
   } = useChatStore();
   const { authUser } = useAuthStore();
-  const messageEndRef = useRef(null);
+  const messageEndRef = useRef(null); //for auto scroll down
 
   useEffect(() => {
     getMessages(selectedUser._id);
@@ -39,11 +39,12 @@ const ChatContainer = () => {
 //     return () => unsubscribeFromMessages();
 //   }, [selectedUser._id, getMessages, subscribeToMessages, unsubscribeFromMessages]);
 
-  // useEffect(() => {
-  //   if (messageEndRef.current && messages) {
-  //     messageEndRef.current.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // }, [messages]);
+//this useeffect will automitacally scroll down whenever new mesage came
+  useEffect(() => {
+    if (messageEndRef.current && messages) {
+      messageEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
 
   if (isMessagesLoading) {
     return (
