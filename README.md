@@ -1,1 +1,8 @@
-This is my project for CSE327.Here i try to implement a real time chat apllication where i use node js &  express.And to make it real time resposive i use socket.io.I also used daisy Ui.
+This is my project for CSE327 - Software Engineering.
+In this project, I implemented a real-time chat application using the following technologies:
+
+🟨 Node.js & Express.js – for building the backend API
+
+🔄 Socket.io – to enable real-time, bidirectional communication between users
+
+🎨 DaisyUI – for fast and beautiful UI components, built on TailwindCSS
