@@ -48,8 +48,11 @@ export const useChatStore = create((set, get) => ({
         if (!selectedUser) return;
     
         const socket = useAuthStore.getState().socket;
-//to do optimize the error
+//solving the user to non user msg bug
+
         socket.on("newMessage", (newMessage) => {
+          const isMessageSentFromSelectedUser = newMessage.senderId === selectedUser._id;
+         if ( !isMessageSentFromSelectedUser) return; //solved the bug
           set({
             messages: [...get().messages, newMessage],
           });
@@ -63,7 +66,7 @@ export const useChatStore = create((set, get) => ({
     },
 
 
-//OPTIMIZE THIS ONE LATER
+
     setSelectedUser: (selectedUser) => set({ selectedUser }),
 
     }));
