@@ -8,9 +8,10 @@ import{connectDB} from "./lib/db.js";
 
 import authRoutes from "./routes/auth.route.js"; //.js bcz local file
 import messageRoutes from "./routes/message.route.js";
+import { app, server } from "./lib/socket.js";
 
 dotenv.config();
-const app = express();
+// const app = express(); No need of this now as we alredy create a app in socket.io
 
 const PORT = process.env.PORT;  
 
@@ -26,7 +27,8 @@ app.use(cors({
 app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
 
-app.listen(PORT, ()=> {
+//replacing previous app with the server we created for socket
+server.listen(PORT, ()=> {
     console.log("server is running on PORT:" + PORT);
     connectDB();
 });
