@@ -28,6 +28,7 @@ const App = () => {
    
 
     console.log({authUser} );
+    
 
     if (isCheckingAuth && !authUser)
         return (
