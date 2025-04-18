@@ -1,0 +1,21 @@
+{
+  "name": "chatwave",
+  "version": "1.0.0",
+  "description": "This is my project for CSE327 - Software Engineering.\r In this project, I implemented a real-time chat application using the following technologies:",
+  "main": "index.js",
+  "scripts": {
+    "build":"npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start":"npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Minhajul-Islam-Rimon/Chat-Wave.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Minhajul-Islam-Rimon/Chat-Wave/issues"
+  },
+  "homepage": "https://github.com/Minhajul-Islam-Rimon/Chat-Wave#readme"
+}
